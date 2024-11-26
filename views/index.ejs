@@ -32,6 +32,13 @@
         </select>
         <button>Search by Category</button>
       </form>
+
+      <form action="/searchByLikes">
+        <input id="lower" name="lower" type="number">
+        <input id="upper" name="upper" type="number">
+        <button id="searchByLikes">Search by Likes</button>
+        <div id="likesFb"></div>
+      </form>
    
       <%- include("partials/footer.ejs") %>
 </body>

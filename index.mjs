@@ -84,6 +84,19 @@ app.get('/searchByCategory', async (req, res) => {
     res.render("results",{"quotes":rows});
 });//searchByCategory
 
+app.get('/searchByLikes', async (req, res) => {
+    let lower = req.query.lower;
+    let upper = req.query.upper;
+    console.log("lower:", lower, "  upper: ", upper);
+    let sql = `SELECT authorId, firstName, lastName, quote
+                FROM q_quotes
+                NATURAL JOIN q_authors
+                WHERE likes BETWEEN ? AND ?`;
+    let sqlParams = [lower, upper];
+    const [rows] = await conn.query(sql, sqlParams);
+    res.render("results",{"quotes":rows});
+});//searchByLikes
+
 app.listen(3000, ()=>{
     console.log("Express server running");
 });
