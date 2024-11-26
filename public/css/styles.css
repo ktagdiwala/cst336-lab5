@@ -4,8 +4,8 @@ body {
     justify-content: top;
     min-height: 100vh;
     position: relative;
-    background-color: #003d54;
-    color: #FDFFF5;
+    background-color: #FFF8E7;
+    color: #2B6D98;
     font-family: "Josefin Slab", serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -13,7 +13,7 @@ body {
 
 hr {
     width: 100%;
-    color: #54C7C6;
+    color: #0281B1;
 }
 
 header, main, nav, footer {
@@ -25,7 +25,7 @@ footer {
     bottom: 0;
     width: 100%;
     text-align: start;
-    color: #a1e9e7;
+    color: #65B5F6;
     font-weight: 400;
 }
 
@@ -39,7 +39,7 @@ footer {
 #csumb-logo {
     width: 70px;
     height: auto;
-    border: 2px #a1e9e7 solid;
+    border: 2px #65B5F6 solid;
     border-radius: 100%;
     margin-right: 10px;
 }

@@ -9,6 +9,7 @@
         <button>Search by Keyword</button>
       </form>
       <br><p></p>
+      
       <form action="/searchByAuthor">
         <select name="authorId">
           <% for (author of authors) { %>
@@ -18,7 +19,19 @@
             <% } %>
         </select>
         <button>Search by Author</button>
-      </form>   
+      </form>
+      <br><p></p>
+
+      <form action="/searchByCategory">
+        <select name="category">
+          <% for (quote of quotes) { %>
+            <option value="<%=quote.category%>">
+              <%=quote.category%>
+            </option>
+            <% } %>
+        </select>
+        <button>Search by Category</button>
+      </form>
    
       <%- include("partials/footer.ejs") %>
 </body>

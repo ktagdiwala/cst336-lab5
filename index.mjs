@@ -21,13 +21,17 @@ const pool = mysql.createPool({
 const conn = await pool.getConnection();
 
 //routes
-//lists authors in the dropdown menu from the database
+//lists authors and categories in the dropdown menu from the database
 app.get('/', async (req, res) => {
-    let sql = `SELECT authorId, firstName, lastName
+    let sql1 = `SELECT authorId, firstName, lastName
                 FROM q_authors
                 ORDER BY lastName`;
-    const [rows] = await conn.query(sql);
-    res.render("index", {"authors":rows});
+    const [rows1] = await conn.query(sql1);
+    let sql2 = `SELECT DISTINCT category
+                FROM q_quotes
+                ORDER BY category`;
+    const [rows2] = await conn.query(sql2);
+    res.render("index", {"authors":rows1, "quotes":rows2});
 });
 
 app.get("/allAuthors", async(req, res) => {
@@ -55,12 +59,31 @@ app.get('/searchByAuthor', async (req, res) => {
                 NATURAL JOIN q_authors
                 WHERE authorId = ?`;
     let sqlParams = [`${userAuthorId}`];
-    console.log("userAuthorId: ", userAuthorId);
     const [rows] = await conn.query(sql, sqlParams);
-    console.log(rows);
+    // console.log(rows);
     res.render("results",{"quotes":rows});
 });//searchByAuthor
 
+app.get('/api/author/:id', async (req, res) => {
+    let authorId = req.params.id;
+    let sql = `SELECT *
+              FROM q_authors
+              WHERE authorId = ?`;           
+    let [rows] = await conn.query(sql, [authorId]);
+    res.send(rows)
+});
+
+app.get('/searchByCategory', async (req, res) => {
+    let userCategory = req.query.category;
+    let sql = `SELECT authorId, firstName, lastName, quote
+                FROM q_quotes
+                NATURAL JOIN q_authors
+                WHERE category = ?`;
+    let sqlParams = [`${userCategory}`];
+    const [rows] = await conn.query(sql, sqlParams);
+    res.render("results",{"quotes":rows});
+});//searchByCategory
+
 app.listen(3000, ()=>{
     console.log("Express server running");
-})
+});
