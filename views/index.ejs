@@ -11,12 +11,11 @@
       <br><p></p>
       <form action="/searchByAuthor">
         <select name="authorId">
-          <option value="1"> 
-            Albert Einstein 
-          </option>
-          <option value="2"> 
-             Agatha Christie 
-           </option>
+          <% for (author of authors) { %>
+            <option value="<%=author.authorId%>">
+              <%=author.firstName%> <%=author.lastName%>
+            </option>
+            <% } %>
         </select>
         <button>Search by Author</button>
       </form>   

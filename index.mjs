@@ -21,8 +21,13 @@ const pool = mysql.createPool({
 const conn = await pool.getConnection();
 
 //routes
-app.get('/', (req, res) => {
-   res.render('index')
+//lists authors in the dropdown menu from the database
+app.get('/', async (req, res) => {
+    let sql = `SELECT authorId, firstName, lastName
+                FROM q_authors
+                ORDER BY lastName`;
+    const [rows] = await conn.query(sql);
+    res.render("index", {"authors":rows});
 });
 
 app.get("/allAuthors", async(req, res) => {
@@ -41,7 +46,7 @@ app.get('/searchByKeyword', async (req, res) => {
     const [rows] = await conn.query(sql, sqlParams);
     // console.log(rows);
     res.render("results",{"quotes":rows});
-});
+});//searchByKeyword
 
 app.get('/searchByAuthor', async (req, res) => {
     let userAuthorId = req.query.authorId;
@@ -49,12 +54,12 @@ app.get('/searchByAuthor', async (req, res) => {
                 FROM q_quotes
                 NATURAL JOIN q_authors
                 WHERE authorId = ?`;
-    let sqlParams = [`%${userAuthorId}%`];
+    let sqlParams = [`${userAuthorId}`];
     console.log("userAuthorId: ", userAuthorId);
     const [rows] = await conn.query(sql, sqlParams);
     console.log(rows);
     res.render("results",{"quotes":rows});
-});
+});//searchByAuthor
 
 app.listen(3000, ()=>{
     console.log("Express server running");
