@@ -2,6 +2,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: top;
+    text-align: center;
     min-height: 100vh;
     position: relative;
     background-color: #FFF8E7;
@@ -9,6 +10,10 @@ body {
     font-family: "Josefin Slab", serif;
     font-optical-sizing: auto;
     font-style: normal;
+    font-family: "EB Garamond", serif;
+    background: url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmVhY2glMjB3YWxscGFwZXJ8ZW58MHx8MHx8fDA%3D);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 hr {
@@ -16,17 +21,16 @@ hr {
     color: #0281B1;
 }
 
-header, main, nav, footer {
-    text-align: center;
-}
-
 footer {
     margin-top: auto;
+    margin-bottom: 10px;
     bottom: 0;
     width: 100%;
     text-align: start;
-    color: #65B5F6;
+    color: #2B6D98;
     font-weight: 400;
+    text-shadow: 1px 1px 2px #EAE2B7;
+    font-size: 1.3em;
 }
 
 #footer-content { /* displays image and text side-by-side */
@@ -39,7 +43,57 @@ footer {
 #csumb-logo {
     width: 70px;
     height: auto;
-    border: 2px #65B5F6 solid;
+    border: 2px #2B6D98 solid;
     border-radius: 100%;
     margin-right: 10px;
+}
+
+#searches {
+    width: 65vh;
+    align-self: center;
+    background-color: #fff8e781;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 10px;
+}
+
+.inputInfo {
+    background-color: #EEDEBA;
+}
+
+.btn {
+    background-color: #0281B1;
+    color: #EAE2B7;
+}
+
+.btn:hover {
+    background-color: #65B5F6;
+}
+
+img {
+    border: #2B6D98 5px solid;
+    border-radius: 5px;
+    margin: 3px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 10vh;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 6vh;
+}
+
+#quoteList {
+    width: 80vh;
+    background-color: #fff8e781;
+    border-radius: 10px;
+    padding: 10px;
+    align-self: center;
+}
+
+.modal-content {
+    background-color: #FFF8E7;
 }

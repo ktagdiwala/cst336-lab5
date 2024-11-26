@@ -87,7 +87,7 @@ app.get('/searchByCategory', async (req, res) => {
 app.get('/searchByLikes', async (req, res) => {
     let lower = req.query.lower;
     let upper = req.query.upper;
-    console.log("lower:", lower, "  upper: ", upper);
+    // console.log("lower:", lower, "  upper: ", upper);
     let sql = `SELECT authorId, firstName, lastName, quote
                 FROM q_quotes
                 NATURAL JOIN q_authors

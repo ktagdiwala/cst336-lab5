@@ -3,42 +3,57 @@
 
 
     <h1> Quote Finder </h1>
+    <div id="searches">
       <form action="/searchByKeyword">
-        Keyword: 
-        <input type="text" name="keyword">
-        <button>Search by Keyword</button>
+        <div class="input-group">
+          <span class="input-group-text inputInfo" >Keyword: </span>
+          <input type="text" name="keyword" class="form-control">
+          <button class="btn">Search by Keyword</button>
+        </div>
       </form>
       <br><p></p>
       
       <form action="/searchByAuthor">
-        <select name="authorId">
-          <% for (author of authors) { %>
-            <option value="<%=author.authorId%>">
-              <%=author.firstName%> <%=author.lastName%>
-            </option>
-            <% } %>
-        </select>
-        <button>Search by Author</button>
+        <div class="input-group">
+          <span class="input-group-text inputInfo">Author: </span>
+          <select name="authorId" class="form-select">
+            <% for (author of authors) { %>
+              <option value="<%=author.authorId%>">
+                <%=author.firstName%> <%=author.lastName%>
+              </option>
+              <% } %>
+          </select>
+          <button class="btn">Search by Author</button>
+        </div>
       </form>
       <br><p></p>
 
       <form action="/searchByCategory">
-        <select name="category">
-          <% for (quote of quotes) { %>
-            <option value="<%=quote.category%>">
-              <%=quote.category%>
-            </option>
-            <% } %>
-        </select>
-        <button>Search by Category</button>
+        <div class="input-group">
+          <span class="input-group-text inputInfo">Category: </span>
+          <select name="category" class="form-select">
+            <% for (quote of quotes) { %>
+              <option value="<%=quote.category%>">
+                <%=quote.category%>
+              </option>
+              <% } %>
+          </select>
+          <button class="btn">Search by Category</button>
+        </div>
       </form>
+      <br><p></p>
 
       <form action="/searchByLikes">
-        <input id="lower" name="lower" type="number">
-        <input id="upper" name="upper" type="number">
-        <button id="searchByLikes">Search by Likes</button>
+        <div class="input-group">
+          <span class="input-group-text inputInfo">Minimum Likes</span>
+          <input id="lower" name="lower" type="number" class="form-control">
+          <span class="input-group-text inputInfo">Maximum Likes</span>
+          <input id="upper" name="upper" type="number" class="form-control">
+          <button id="searchByLikes" class="btn">Search by Likes</button>
+        </div>
         <div id="likesFb"></div>
       </form>
+    </div>
    
       <%- include("partials/footer.ejs") %>
 </body>
