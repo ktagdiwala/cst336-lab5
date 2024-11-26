@@ -1,0 +1,45 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    min-height: 100vh;
+    position: relative;
+    background-color: #003d54;
+    color: #FDFFF5;
+    font-family: "Josefin Slab", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+hr {
+    width: 100%;
+    color: #54C7C6;
+}
+
+header, main, nav, footer {
+    text-align: center;
+}
+
+footer {
+    margin-top: auto;
+    bottom: 0;
+    width: 100%;
+    text-align: start;
+    color: #a1e9e7;
+    font-weight: 400;
+}
+
+#footer-content { /* displays image and text side-by-side */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0px;
+}
+
+#csumb-logo {
+    width: 70px;
+    height: auto;
+    border: 2px #a1e9e7 solid;
+    border-radius: 100%;
+    margin-right: 10px;
+}
